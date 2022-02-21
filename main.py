@@ -84,7 +84,7 @@ class Classifier(nn.Module):
         if node_tag_flag == True:
             concat_tag = torch.LongTensor(concat_tag).view(-1, 1)
             node_tag = torch.zeros(n_nodes, cmd_args.feat_dim)
-            node_tag.scatter_(1, concat_tag, 1)
+            node_tag.scatter_(1, concat_tag)  ######
 
         if node_feat_flag == True:
             node_feat = torch.cat(concat_feat, 0)
